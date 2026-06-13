@@ -115,6 +115,8 @@ The gauge chart tracks actual sales against the annual target:
 
 A Star Schema was implemented to improve performance, scalability, and reporting accuracy. The model resolves granularity differences between monthly targets and daily sales transactions, ensuring accurate KPI calculations and time-based analysis.
 
+<img width="1668" height="943" alt="schema" src="https://github.com/user-attachments/assets/408d3fa2-581e-4a7a-807b-bb6768756888" />
+
 ### Fact Tables
 
 - `Fact_Sales`
