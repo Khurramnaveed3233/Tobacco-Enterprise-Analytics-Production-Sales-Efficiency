@@ -3,8 +3,6 @@
 
 ### Sales Performance, Production Efficiency & Target Achievement Analysis using Power BI
 
-<img width="1649" height="954" alt="Tobacco-Enterprise-Analytics-Production-Sales-Efficiency" src="https://github.com/user-attachments/assets/c684e295-3d28-425c-bec8-63b11a6cd03d" />
-
 ---
 
 ## Project Overview
