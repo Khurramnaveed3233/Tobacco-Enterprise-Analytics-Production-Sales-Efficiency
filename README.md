@@ -1,77 +1,96 @@
-# Tobacco Enterprise Analytics: Production & Sales Efficiency
+````markdown
+# Tobacco Manufacturing Analytics Dashboard
 
-<img width="1649" height="954" alt="Tobacco-Enterprise-Analytics-Production-Sales-Efficiency" src="https://github.com/user-attachments/assets/4b39266b-94ff-42e6-965a-2f4d364a5438" />
+### Sales Performance, Production Efficiency & Target Achievement Analysis using Power BI
 
-## Executive Summary
+<img width="1649" height="954" alt="Tobacco-Enterprise-Analytics-Production-Sales-Efficiency" src="https://github.com/user-attachments/assets/c684e295-3d28-425c-bec8-63b11a6cd03d" />
 
-Developed an interactive Power BI dashboard to analyze sales performance and production efficiency for a tobacco manufacturing company. The solution consolidates sales, distributor, production, and target data into a single reporting platform, enabling stakeholders to monitor key business metrics, identify operational inefficiencies, and make data-driven decisions.
+---
 
-The dashboard provides visibility into revenue growth, target achievement, distributor performance, production waste, and quality trends, helping management improve profitability and operational effectiveness.
+## Project Overview
+
+This project analyzes sales performance, production efficiency, and target achievement for a tobacco manufacturing company using Power BI. The objective was to create a centralized analytics solution that enables management to monitor business performance, identify operational inefficiencies, and support data-driven decision-making.
+
+The dashboard consolidates sales, production, distributor, and target data into a single reporting platform, providing real-time visibility into revenue growth, quality performance, production losses, and business targets.
+
+---
+
+## Skills & Tools
+
+**Power BI • DAX • Power Query • Data Modeling • Star Schema • KPI Development • Sales Analytics • Manufacturing Analytics • Business Intelligence • Data Visualization**
 
 ---
 
 ## Business Problem
 
-The organization lacked a centralized reporting system to monitor sales growth, production quality, waste loss, and distributor performance. As a result, management had limited visibility into operational inefficiencies and overall business performance, making strategic decision-making more difficult.
+The organization lacked a centralized reporting solution to monitor sales growth, production quality, waste loss, and distributor performance. Decision-makers had limited visibility into operational inefficiencies and overall business performance, making it difficult to identify growth opportunities and improve manufacturing efficiency.
 
-This project was designed to provide a single source of truth for monitoring sales and production operations through interactive business intelligence reporting.
-
----
-
-## Key Insights
-
-- Total sales reached **15M PKR**.
-- Sales increased from **4.4M PKR in 2024** to **5.9M PKR in 2026**, representing **34.1% overall growth**.
-- Punjab Corp generated **3.9M PKR**, making it the highest-performing distributor.
-- The top two distributors contributed approximately **55% of total distributor revenue**.
-- Production waste reached **20.26K units**, indicating opportunities for cost optimization.
-- Monthly rejection rates ranged between **3.3% and 5.0%**, highlighting quality consistency challenges.
-- The business achieved a **Target Achievement Ratio of 1.39**, demonstrating strong sales performance.
+This project was developed to provide a single source of truth for monitoring both commercial and operational performance.
 
 ---
 
-## Business Impact
+## Executive Summary
 
-This dashboard enables management to monitor business performance in real time, identify revenue opportunities, reduce production waste, improve quality control, and optimize distributor performance.
-
-The insights generated support:
-- Improved profitability
-- Better operational efficiency
-- Faster decision-making
-- Enhanced production planning
-- More effective strategic execution
+The dashboard revealed that the company generated **15M PKR in total sales**, achieved **34.1% sales growth** over three years, and maintained a **Target Achievement Ratio of 1.39**. Analysis also identified **20.26K units of production waste** and monthly rejection rates ranging from **3.3% to 5.0%**, highlighting opportunities for operational improvement and cost reduction.
 
 ---
 
-## Data Modeling Approach
+## Dashboard Preview
 
-A Star Schema data model was implemented, with **Fact_Sales**, **Fact_Production**, and **Fact_Targets** serving as the central fact tables.
+![Tobacco Enterprise Analytics Dashboard](https://github.com/user-attachments/assets/4b39266b-94ff-42e6-965a-2f4d364a5438)
 
-These tables are connected to shared dimension tables such as:
+---
+
+## Key Business Metrics
+
+| KPI | Value |
+|------|------|
+| Total Sales | 15M PKR |
+| Sales YTD | 6M PKR |
+| Target Achievement Ratio | 1.39 |
+| Production Waste Loss | 20.26K Units |
+
+---
+
+## Data Model
+
+A Star Schema data model was implemented to improve performance, scalability, and reporting accuracy.
+
+### Fact Tables
+
+- Fact_Sales
+- Fact_Production
+- Fact_Targets
+
+### Dimension Tables
 
 - Dim_Date
 - Dim_Brand
 
-The model was specifically designed to resolve granularity differences between monthly sales targets and daily sales transactions, ensuring accurate reporting and KPI calculations.
+The model was designed to resolve granularity differences between monthly targets and daily sales transactions, ensuring accurate KPI calculations and time-based analysis.
 
 ---
 
-## Power BI Features Used
+## Power BI Features Implemented
 
 ### DAX Measures
-- Time Intelligence Calculations (YTD Sales)
+
+- Total Sales
+- Sales YTD
 - Target Achievement Ratio
-- KPI Aggregations
-- DIVIDE-based Performance Metrics
+- Production Waste Loss
+- Time Intelligence Calculations
 
 ### Visualizations
+
 - KPI Cards
 - Gauge Charts
 - Line Charts
 - Area Charts
 - Trend Analysis Visuals
 
-### User Experience (UX)
+### User Experience
+
 - Interactive Slicers
 - Cross-Filtering
 - Report Page Tooltips
@@ -79,103 +98,161 @@ The model was specifically designed to resolve granularity differences between m
 
 ---
 
-## Key Performance Indicators (KPIs)
+## Sample DAX Measures
 
-| KPI | Value | Business Meaning |
-|------|---------|----------------|
-| Total Sales | 15M PKR | Total revenue generated |
-| Sales YTD | 6M PKR | Current year sales performance |
-| Target Achievement Ratio | 1.39 | Sales performance relative to targets |
-| Production Waste Loss | 20.26K Units | Total production losses |
+### Total Sales
+
+```DAX
+Total Sales =
+SUM(Fact_Sales[SalesAmount])
+````
+
+### Sales YTD
+
+```DAX
+Sales YTD =
+TOTALYTD(
+    [Total Sales],
+    Dim_Date[Date]
+)
+```
+
+### Target Achievement Ratio
+
+```DAX
+Target Achievement Ratio =
+DIVIDE(
+    [Total Sales],
+    [Target Sales]
+)
+```
 
 ---
 
 ## Analytical Insights
 
-### 1. Sales Growth Trend
-Sales increased from **4.4M PKR (2024)** to **5.9M PKR (2026)**, representing an overall growth rate of **34.1%**.
+### Revenue Growth
 
-### 2. Revenue Concentration
-Punjab Corp contributed approximately **26% of total revenue**, making it the most important distributor.
+Sales increased from **4.4M PKR in 2024** to **5.9M PKR in 2026**, representing an overall growth rate of **34.1%**.
 
-### 3. Production Quality Variability
-Rejection rates fluctuated between **3.3% and 5.0%**, indicating inconsistencies in production quality.
+### Distributor Performance
 
-### 4. Waste Impact on Profitability
-Production waste reached **20.26K units**, potentially reducing profit margins by an estimated **5–8%**.
+Punjab Corp generated **3.9M PKR**, making it the highest-performing distributor and a key revenue contributor.
 
-### 5. Sales Target Performance
-Actual sales reached **15M PKR** against an annual target of **31M PKR**, achieving approximately **48% of the target**.
+### Revenue Concentration
 
-### 6. Distributor Performance Gap
-A significant revenue gap exists between Punjab Corp (**3.9M PKR**) and Cherab Dist (**1.5M PKR**), representing a difference of approximately **61%**.
+The top two distributors contributed approximately **55% of total distributor revenue**, indicating a potential concentration risk.
 
-### 7. YTD Performance Monitoring
-Current Year-to-Date sales stand at **6M PKR**, representing approximately **19% of the annual target**, indicating a need for stronger sales momentum in upcoming periods.
+### Production Waste
 
-### 8. Rejection Rate Correlation
-Higher rejection rates tend to occur during peak production periods, suggesting capacity-related quality challenges.
+Production waste reached **20.26K units**, highlighting opportunities for cost reduction and process optimization.
 
-### 9. Brand Performance
-Gold Leaf and Capstan emerged as leading contributors to distributor sales performance.
+### Product Quality
 
-### 10. Target Efficiency
-The **1.39 Target Achievement Ratio** indicates performance above the baseline expectation.
+Monthly rejection rates fluctuated between **3.3% and 5.0%**, suggesting variability in manufacturing quality.
+
+### Sales Target Performance
+
+The business achieved a **Target Achievement Ratio of 1.39**, demonstrating strong sales execution.
+
+### Distributor Gap Analysis
+
+A significant performance gap exists between the highest-performing distributor (Punjab Corp) and the lowest-performing distributor (Cherab Dist), indicating opportunities for distributor development.
 
 ---
 
 ## Business Recommendations
 
-### Quality Control Optimization
-Conduct audits during high-rejection periods and implement machine calibration procedures.
+### Quality Improvement
+
+Conduct audits during high-rejection periods and implement machine calibration procedures to improve product quality.
 
 ### Distributor Development
-Introduce targeted incentive programs for lower-performing distributors such as Cherab Dist.
 
-### Inventory Planning
-Align raw material procurement with peak sales periods to avoid shortages and excess inventory.
+Introduce targeted incentive programs and performance reviews for lower-performing distributors.
 
-### Waste Reduction Strategy
-Establish a production waste threshold of **3.5%** and continuously monitor performance.
+### Waste Reduction
 
-### Target Planning
-Increase future sales targets by approximately **10%** based on current achievement trends.
+Establish production waste thresholds and implement continuous monitoring to reduce operational losses.
 
-### Brand Growth Initiatives
-Launch promotional campaigns for lower-performing brands to increase market share.
+### Inventory Optimization
+
+Align procurement and inventory planning with sales demand patterns to improve efficiency.
 
 ### Predictive Maintenance
-Implement preventive maintenance schedules to reduce production disruptions.
+
+Implement preventive maintenance schedules to minimize downtime and production disruptions.
+
+### Brand Growth Strategy
+
+Develop promotional campaigns for lower-performing brands to improve market penetration.
 
 ### Workforce Training
-Provide specialized training programs focused on reducing rejection rates and improving quality consistency.
+
+Provide targeted training programs focused on reducing rejection rates and improving operational consistency.
+
+### Strategic Planning
+
+Use dashboard insights to establish more realistic sales targets and support long-term business planning.
 
 ---
 
 ## Business Impact
 
-Implementing these recommendations could potentially:
+Implementing the proposed recommendations could potentially:
 
-- Reduce production waste by **15%**
-- Increase distributor revenue by **10%**
-- Improve production efficiency
-- Enhance product quality
-- Strengthen sales performance
-- Increase profitability by an estimated **8%**
+* Reduce production waste by up to 15%
+* Increase distributor revenue by approximately 10%
+* Improve manufacturing efficiency
+* Strengthen product quality consistency
+* Improve sales forecasting accuracy
+* Increase overall profitability by an estimated 8%
+
+---
+
+## Project Highlights
+
+* Built an executive Power BI dashboard tracking **15M PKR** in sales performance.
+* Analyzed **34.1% revenue growth** across a three-year period.
+* Identified **20.26K units** of production waste impacting operational efficiency.
+* Evaluated distributor performance and revenue concentration risks.
+* Designed a Star Schema data model and developed DAX measures for KPI tracking.
+* Delivered actionable recommendations to improve profitability and operational performance.
 
 ---
 
 ## Technical Skills Demonstrated
 
-- Power BI
-- DAX
-- Power Query
-- Star Schema Data Modeling
-- Data Visualization
-- KPI Development
-- Business Process Analysis
-- Sales Analytics
-- Manufacturing Analytics
-- Performance Reporting
-- Dashboard Design
-- Business Intelligence
+* Power BI
+* DAX
+* Power Query
+* Star Schema Modeling
+* KPI Development
+* Sales Analytics
+* Manufacturing Analytics
+* Business Intelligence Reporting
+* Dashboard Design
+* Data Visualization
+* Business Process Analysis
+* Performance Monitoring
+
+---
+
+## Repository Structure
+
+```text
+├── Dashboard.pbix
+├── Dataset/
+├── Screenshots/
+├── Documentation/
+└── README.md
+```
+
+---
+
+## Conclusion
+
+This project demonstrates how Power BI can transform raw sales and production data into actionable business intelligence. By integrating operational and commercial performance metrics into a unified reporting solution, management gains visibility into revenue growth, production efficiency, quality performance, and strategic opportunities for improvement.
+
+```
+```
